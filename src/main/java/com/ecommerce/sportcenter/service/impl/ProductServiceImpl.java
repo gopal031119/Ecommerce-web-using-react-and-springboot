@@ -7,9 +7,11 @@ import com.ecommerce.sportcenter.service.ProductService;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 @Service
@@ -35,11 +37,22 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
-    public Page<ProductResponse> getAllProducts(Pageable pageable) {
-        log.info("fetching all products!!!");
-        Page<Product> productPage = productRepository.findAll(pageable);
+    public Page<ProductResponse> getProducts(Pageable pageable, Integer brandId, Integer typeId, String keyword) {
+        Specification<Product> spec = Specification.where(null);
+        
+        if(Objects.nonNull(brandId)){
+            spec = spec.and(((root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("brand").get("id"), brandId)));
+        }
+        if(Objects.nonNull(typeId)){
+            spec = spec.and(((root, query, criteriaBuilder) -> criteriaBuilder.equal(root.get("type").get("id"), typeId)));
+        }
+        if(Objects.nonNull(keyword) && !keyword.isEmpty()){
+            spec = spec.and(((root, query, criteriaBuilder) -> criteriaBuilder.like(root.get("name"), "%" + keyword + "%")));
+        }
+        Page<Product> productPage = productRepository.findAll(spec, pageable);
         // no need to stream
         Page<ProductResponse> productResponses = productPage.map(this::convertToProductResponse);
+        log.info("fetched all products!!!");
         return productResponses;
     }
 
