@@ -1,49 +1,28 @@
-import { useEffect, useState } from "react"
-import { Product } from "../models/products";
+import { Container, CssBaseline, ThemeProvider, createTheme } from "@mui/material";
+import Catalog from "../../features/catalog/Catalog";
+import Header from "./Header";
+import { useState } from "react";
 
 function App() {
-  //Define a state variable products, using useState
-  const [products, setProducts] = useState<Product[]>([]);
-  useEffect(()=>{
-    //Function to fetch the data
-    const fetchData = async () =>{
-      try{
-        const response = await fetch('http://localhost:8282/api/products');
-        if(!response.ok){
-          throw new Error('Failed to fetch the data');
-        }
-        const data = await response.json();
-        setProducts(data.content);
-      }catch(error){
-        console.error('Error Fetching Data:', error);
-      }
-    };
-    fetchData();
-  }, []);
+  const [darkMode, setDarkMode] = useState(false);
+  const paletteType = darkMode ? 'dark' : 'light';
 
-  // fetching product using promise
-  /*
-  useEffect(()=>{
-    fetch('http://localhost:8282/api/products')
-    .then(response => response.json())
-    .then(data => setProducts(data.json));
-  }, []) 
-  */
-
+  const theme = createTheme({
+    palette:{
+      mode:paletteType,
+    }
+  })
+  function handleThemeChange(){
+    setDarkMode(!darkMode);
+  }
   return (
-    <div>
-      <h1>Sports Center</h1>
-      {products.map(product=>(
-        <div key={product.id}>
-          <p>Name: {product.name}</p>
-          <p>Description: {product.description}</p>
-          <p>Price: ${product.price}</p>
-          <p>Brand: {product.productBrand}</p>
-          <p>Type: ${product.productType}</p>
-        </div>
-      ))}
-      
-    </div>
+    <ThemeProvider theme={theme}>
+    <CssBaseline/>
+    <Header darkMode={darkMode} handleThemeChange={handleThemeChange}/>
+    <Container sx={{ paddingTop: "64px" }}>
+      <Catalog/>
+    </Container>
+    </ThemeProvider>
   )
 }
 
