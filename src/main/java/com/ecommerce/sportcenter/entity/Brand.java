@@ -10,9 +10,9 @@ import java.util.List;
 
 @Entity
 @Table(name="Brand")
-@Data // getter ,setter and basic methods
-@AllArgsConstructor // constructors for jpa 
-@NoArgsConstructor // constructors for jpa 
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Brand {
     @Id
@@ -22,5 +22,5 @@ public class Brand {
     @Column(name="Name")
     private String name;
     @OneToMany(mappedBy = "brand", fetch = FetchType.LAZY)
-    private List<Product> products;
+    private List<com.ecommerce.sportcenter.entity.Product> prodcts;
 }

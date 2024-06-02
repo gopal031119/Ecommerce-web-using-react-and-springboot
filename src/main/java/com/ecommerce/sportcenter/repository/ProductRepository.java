@@ -13,6 +13,5 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     Specification<Product> searchByNameContaining(String keyword);
     Specification<Product> findByBrandId(Integer brandId);
     Specification<Product> findByTypeId(Integer typeId);
-    Specification<Product> findByBrandIdAndTypeId(Integer brandId,Integer typeId);
-    
+    Specification<Product> findByBrandIdAndTypeId(Integer brandId, Integer typeId);
 }
