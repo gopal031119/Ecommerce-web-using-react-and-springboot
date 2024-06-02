@@ -1,7 +1,5 @@
 package com.ecommerce.sportcenter.model;
 
-import com.ecommerce.sportcenter.entity.Brand;
-import com.ecommerce.sportcenter.entity.Type;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -11,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class ProductResponse {
+public class BasketItemResponse {
     private Integer id;
     private String name;
     private String description;
@@ -19,4 +17,5 @@ public class ProductResponse {
     private String pictureUrl;
     private String productBrand;
     private String productType;
+    private Integer quantity;
 }
