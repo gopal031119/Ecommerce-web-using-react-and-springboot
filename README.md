@@ -1,4 +1,4 @@
-# Ecommerce using React and Spring Boot
+# Ecommerce web using React and Spring Boot
 
 ## Sport Center Ecommerce Website
 
