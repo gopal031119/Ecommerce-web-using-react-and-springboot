@@ -47,9 +47,6 @@ This project is an Ecommerce web application built using React for the frontend 
     npm run dev    # Start development server
 
 3. **Backend Setup**
-   ```bash
-   mvn clean install
-   start server
 
 **Set up your Redis server and update the configuration accordingly**
 
@@ -69,4 +66,16 @@ Build Docker Images:
   docker-compose up -d 
 
 Run Docker Containers:
-    docker run -p 8282:8282 
+    docker run -p 8282:8282
+```
+
+
+
+**Accessing the Application:**
+   ```bash
+   mvn clean install
+   start server
+```
+  Frontend: Open your browser and go to http://localhost:3000.
+  
+  Backend: The backend will be running on http://localhost:8282.
