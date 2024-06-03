@@ -27,11 +27,27 @@ This project is an Ecommerce web application built using React for the frontend 
 ### Features
 
 - User authentication using JWT.
+<img width="1717" alt="image" src="https://github.com/gopal031119/Ecommerce-web-using-react-and-springboot/assets/57183102/006210bb-01fc-44d6-b4c5-2dce185502ae">
+
 - Browse and search for sports products.
+
+<img width="1717" alt="image" src="https://github.com/gopal031119/Ecommerce-web-using-react-and-springboot/assets/57183102/7bb4fb21-05ba-4b7c-8c5b-2faadefdae6f">
+
 - Add products to the shopping cart.
+<img width="1717" alt="image" src="https://github.com/gopal031119/Ecommerce-web-using-react-and-springboot/assets/57183102/c258c3aa-1261-40cd-8876-b87d1f823602">
+
 - Secure checkout process.
+  <img width="1717" alt="image" src="https://github.com/gopal031119/Ecommerce-web-using-react-and-springboot/assets/57183102/eb3b3234-4452-42ed-83cf-6cbb7f32b4d1">
+
+  <img width="1717" alt="image" src="https://github.com/gopal031119/Ecommerce-web-using-react-and-springboot/assets/57183102/6cfc1425-e221-47f5-a69a-ffde7cb48a98">
+
+  <img width="1717" alt="image" src="https://github.com/gopal031119/Ecommerce-web-using-react-and-springboot/assets/57183102/6f78fad1-a170-400f-8ece-51f9c5af0945">
+- Dark Mode
+  <img width="1717" alt="image" src="https://github.com/gopal031119/Ecommerce-web-using-react-and-springboot/assets/57183102/0f6a9d43-e4d5-49e1-b943-65c06bdc6b51">
+
 - Integration with Redis for caching to improve performance.
 - Containerized deployment using Docker.
+
 
 ### Getting Started
 
@@ -79,3 +95,4 @@ Run Docker Containers:
   Frontend: Open your browser and go to http://localhost:3000.
   
   Backend: The backend will be running on http://localhost:8282.
+
