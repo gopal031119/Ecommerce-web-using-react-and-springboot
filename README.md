@@ -63,6 +63,9 @@ This project is an Ecommerce web application built using React for the frontend 
     npm run dev    # Start development server
 
 3. **Backend Setup**
+   
+=====================
+   
 
 **Set up your Redis server and update the configuration accordingly**
 
